@@ -1,0 +1,29 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/Home v4.dc.html" },
+    { "source": "/home", "destination": "/Home v4.dc.html" },
+    { "source": "/about", "destination": "/About v2.dc.html" },
+    { "source": "/admissions", "destination": "/Admissions.dc.html" },
+    { "source": "/contact", "destination": "/Contact v2.dc.html" },
+    { "source": "/course", "destination": "/Course.dc.html" },
+    { "source": "/courses", "destination": "/Courses.dc.html" },
+    { "source": "/faq", "destination": "/FAQ.dc.html" },
+    { "source": "/legal", "destination": "/Legal.dc.html" },
+    { "source": "/pay-fees", "destination": "/Pay Fees.dc.html" },
+    { "source": "/placements", "destination": "/Placements.dc.html" },
+    { "source": "/resources", "destination": "/Resources.dc.html" },
+    { "source": "/Highline%20Website/:match*", "destination": "/:match*" },
+    { "source": "/Highline Website/:match*", "destination": "/:match*" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)\\.dc\\.html",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/html; charset=utf-8"
+        }
+      ]
+    }
+  ]
+}
