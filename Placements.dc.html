@@ -378,6 +378,18 @@ document.addEventListener('DOMContentLoaded', async function() {
     // createElement so they execute, awaiting onload for src scripts to
     // preserve ordering (React before ReactDOM before Babel before text/babel).
     const doc = new DOMParser().parseFromString(template, 'text/html');
+    if (doc.body) {
+      const pl = document.createElement('div');
+      pl.id = 'hl-site-preloader';
+      pl.innerHTML = '<div class="hl-pre-inner"><div class="hl-pre-logo-wrap"><div class="hl-pre-glow"></div><img src="assets/highline-logo.png" alt="Highline Logo" class="hl-pre-logo"></div><div class="hl-pre-title">Highline Fire &amp; Safety</div><div class="hl-pre-sub">Training Institute · Karimnagar</div><div class="hl-pre-bar"><div class="hl-pre-fill"></div></div></div>';
+      doc.body.insertBefore(pl, doc.body.firstChild);
+    }
+    if (doc.head) {
+      const ps = document.createElement('style');
+      ps.id = 'hl-pre-css';
+      ps.textContent = '#hl-site-preloader{position:fixed;inset:0;width:100%;height:100%;background:#0C2340;z-index:999999;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:"Public Sans",system-ui,sans-serif;user-select:none;transition:opacity .4s ease,visibility .4s ease}.hl-pre-inner{display:flex;flex-direction:column;align-items:center;text-align:center;padding:24px;max-width:380px;width:100%}.hl-pre-logo-wrap{position:relative;margin-bottom:22px}.hl-pre-glow{position:absolute;inset:-16px;background:radial-gradient(circle,rgba(46,143,224,.4) 0%,rgba(12,35,64,0) 72%);border-radius:50%;filter:blur(10px);animation:hlGlow 2.4s ease-in-out infinite alternate}.hl-pre-logo{position:relative;width:84px;height:84px;object-fit:contain;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.4);animation:hlPulse 2s ease-in-out infinite}.hl-pre-title{font-family:"Archivo",system-ui,sans-serif;font-weight:800;font-size:20px;letter-spacing:.05em;color:#FFF;text-transform:uppercase;margin-bottom:6px}.hl-pre-sub{font-size:13px;font-weight:600;letter-spacing:.08em;color:#8EAFCE;text-transform:uppercase;margin-bottom:26px}.hl-pre-bar{width:180px;height:4px;background:rgba(255,255,255,.12);border-radius:99px;overflow:hidden;position:relative}.hl-pre-fill{position:absolute;top:0;left:0;height:100%;width:35%;background:linear-gradient(90deg,#F5C400 0%,#2E8FE0 100%);border-radius:99px;animation:hlIndeterminate 1.5s cubic-bezier(.65,0,.35,1) infinite}@keyframes hlPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}@keyframes hlGlow{0%{opacity:.3;transform:scale(.92)}100%{opacity:.85;transform:scale(1.1)}}@keyframes hlIndeterminate{0%{left:-40%;width:30%}50%{left:30%;width:50%}100%{left:100%;width:30%}}';
+      doc.head.appendChild(ps);
+    }
     document.documentElement.replaceWith(doc.documentElement);
 
     // Resolve page-frame markers: mint this document's own blob for each
@@ -438,8 +450,8 @@ document.addEventListener('DOMContentLoaded', async function() {
       const cov = document.getElementById('hl-cover');
       if (cov) cov.remove();
     }
-    requestAnimationFrame(function() { setTimeout(dismissPreloader, 100); });
-    window.addEventListener('load', function() { setTimeout(dismissPreloader, 30); });
+    requestAnimationFrame(function() { setTimeout(dismissPreloader, 250); });
+    window.addEventListener('load', function() { setTimeout(dismissPreloader, 100); });
     setTimeout(dismissPreloader, 800);
 
     document.addEventListener('click', function(e) {
