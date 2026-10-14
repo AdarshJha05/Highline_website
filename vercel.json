@@ -1,144 +1,23 @@
 {
-  "cleanUrls": true,
-  "redirects": [
-    {
-      "source": "/Home%20v4.dc.html",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/Home v4.dc.html",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/home",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/About%20v2.dc.html",
-      "destination": "/about",
-      "permanent": true
-    },
-    {
-      "source": "/About v2.dc.html",
-      "destination": "/about",
-      "permanent": true
-    },
-    {
-      "source": "/Admissions.dc.html",
-      "destination": "/admissions",
-      "permanent": true
-    },
-    {
-      "source": "/Contact%20v2.dc.html",
-      "destination": "/contact",
-      "permanent": true
-    },
-    {
-      "source": "/Contact v2.dc.html",
-      "destination": "/contact",
-      "permanent": true
-    },
-    {
-      "source": "/Courses.dc.html",
-      "destination": "/courses",
-      "permanent": true
-    },
-    {
-      "source": "/Course.dc.html",
-      "destination": "/course",
-      "permanent": true
-    },
-    {
-      "source": "/FAQ.dc.html",
-      "destination": "/faq",
-      "permanent": true
-    },
-    {
-      "source": "/Placements.dc.html",
-      "destination": "/placements",
-      "permanent": true
-    },
-    {
-      "source": "/Pay%20Fees.dc.html",
-      "destination": "/pay-fees",
-      "permanent": true
-    },
-    {
-      "source": "/Pay Fees.dc.html",
-      "destination": "/pay-fees",
-      "permanent": true
-    },
-    {
-      "source": "/Legal.dc.html",
-      "destination": "/legal",
-      "permanent": true
-    },
-    {
-      "source": "/Resources.dc.html",
-      "destination": "/resources",
-      "permanent": true
-    }
-  ],
   "rewrites": [
-    {
-      "source": "/",
-      "destination": "/Home v4.dc.html"
-    },
-    {
-      "source": "/about",
-      "destination": "/About v2.dc.html"
-    },
-    {
-      "source": "/admissions",
-      "destination": "/Admissions.dc.html"
-    },
-    {
-      "source": "/contact",
-      "destination": "/Contact v2.dc.html"
-    },
-    {
-      "source": "/course",
-      "destination": "/Course.dc.html"
-    },
-    {
-      "source": "/courses",
-      "destination": "/Courses.dc.html"
-    },
-    {
-      "source": "/faq",
-      "destination": "/FAQ.dc.html"
-    },
-    {
-      "source": "/legal",
-      "destination": "/Legal.dc.html"
-    },
-    {
-      "source": "/pay-fees",
-      "destination": "/Pay Fees.dc.html"
-    },
-    {
-      "source": "/placements",
-      "destination": "/Placements.dc.html"
-    },
-    {
-      "source": "/resources",
-      "destination": "/Resources.dc.html"
-    },
-    {
-      "source": "/Highline%20Website/:match*",
-      "destination": "/:match*"
-    },
-    {
-      "source": "/Highline Website/:match*",
-      "destination": "/:match*"
-    }
+    { "source": "/", "destination": "/Home v4.dc.html" },
+    { "source": "/home", "destination": "/Home v4.dc.html" },
+    { "source": "/about", "destination": "/About v2.dc.html" },
+    { "source": "/admissions", "destination": "/Admissions.dc.html" },
+    { "source": "/contact", "destination": "/Contact v2.dc.html" },
+    { "source": "/course", "destination": "/Course.dc.html" },
+    { "source": "/courses", "destination": "/Courses.dc.html" },
+    { "source": "/faq", "destination": "/FAQ.dc.html" },
+    { "source": "/legal", "destination": "/Legal.dc.html" },
+    { "source": "/pay-fees", "destination": "/Pay Fees.dc.html" },
+    { "source": "/placements", "destination": "/Placements.dc.html" },
+    { "source": "/resources", "destination": "/Resources.dc.html" },
+    { "source": "/Highline%20Website/:match*", "destination": "/:match*" },
+    { "source": "/Highline Website/:match*", "destination": "/:match*" }
   ],
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/(.*)\\.dc\\.html",
       "headers": [
         {
           "key": "Content-Type",
