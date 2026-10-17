@@ -20,8 +20,6 @@
   </noscript>
 </head>
 <body>
-  
-  </div>
   <div id="__bundler_thumbnail" style="display:none!important"></div>
   <div id="__bundler_loading" style="display:none!important"></div>
 
@@ -369,27 +367,8 @@ document.addEventListener('DOMContentLoaded', async function() {
       if (cov) cov.remove();
     }
     dismissPreloader();
-
-    document.addEventListener('click', function(e) {
-      var a = e.target.closest('a');
-      if (a && a.href && !a.target && (a.hostname === location.hostname || !a.hostname)) {
-        var href = a.getAttribute('href');
-        if (href && !href.startsWith('#') && !href.startsWith('tel:') && !href.startsWith('mailto:') && !href.startsWith('javascript:')) {
-          var p = document.getElementById('hl-site-preloader');
-          if (!p) {
-            p = document.createElement('div');
-            p.id = 'hl-site-preloader';
-            p.innerHTML = '<div class="hl-pre-inner"><div class="hl-pre-logo-wrap"><div class="hl-pre-glow"></div><img src="assets/highline-logo.png" alt="Highline Logo" class="hl-pre-logo"></div><div class="hl-pre-title">Highline Fire &amp; Safety</div><div class="hl-pre-sub">Training Institute · Karimnagar</div><div class="hl-pre-bar"><div class="hl-pre-fill"></div></div></div>';
-            p.style.opacity = '0';
-            document.body.appendChild(p);
-            requestAnimationFrame(function() { p.style.opacity = '1'; });
-          } else {
-            p.style.opacity = '1';
-            p.style.pointerEvents = 'all';
-          }
-        }
-      }
-    }, true);
+    window.addEventListener('pageshow', function() { dismissPreloader(); });
+    window.addEventListener('popstate', function() { dismissPreloader(); });
   } catch (err) {
     setStatus('Error unpacking: ' + err.message);
     console.error('Bundle unpack error:', err);
